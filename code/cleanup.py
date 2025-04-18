@@ -22,8 +22,19 @@ valid_age = make_valid_array(7)
 valid_sex = make_valid_array(2)
 valid_usual_short_student = make_valid_array(3)
 
+validity_arrays = [valid_social_grades, valid_birth_coutry, valid_econ_activity, valid_ethnic_group, valid_health, valid_family_type, valid_hours_worked, valid_in_education, valid_industry, valid_iol, valid_partner_status, valid_occupation, valid_region, valid_religion, valid_residence, valid_age, valid_sex, valid_usual_short_student]
+
 df = pd.read_csv("../data/publicmicrodatateachingsample.csv")
 
-mask = -df["approx_social_grade"].isin(valid_social_grades)
-
-print(df[mask])
+#mask = -df["approx_social_grade"].isin(valid_social_grades)
+#print(df[mask])
+index = 0
+for (column) in df:
+    if column == "resident_id_m":
+        print(column)
+        continue
+    mask = -df[column].isin(validity_arrays[index])
+    print(column)
+    print(validity_arrays[index])
+    print(df[mask])
+    index += 1
