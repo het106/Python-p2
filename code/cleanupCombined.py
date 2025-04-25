@@ -25,7 +25,7 @@ def perform_consistency_checks(file_path):
         'missing_values': None,
         'duplicates': None,
         'data_types': None,
-        'outliers': {},
+        'exclusive_values': {},
         'invalid_values': {}
     }
     
@@ -41,24 +41,31 @@ def perform_consistency_checks(file_path):
     data_types = df.dtypes
     results['data_types'] = data_types
     
-    # 4. Check for outliers in numerical columns using IQR
-    numerical_columns = df.select_dtypes(include=[np.number]).columns
-    
-    for col in numerical_columns:
-        Q1 = df[col].quantile(0.25)
-        Q3 = df[col].quantile(0.75)
-        IQR = Q3 - Q1
+    # 4. Check for mutually exlusive values
+    #Full time students whose economic category should exclude students
+    student_exclusive = df.loc[(df["in_full_time_education"] == 1) & (df["economic_activity_status_10m"] >= 1) & (df["economic_activity_status_10m"] <= 3) & (df["economic_activity_status_10m"] != -8)]
+    #Married people who are below the legal age of marriage
+    married_age_exclusive = df.loc[(df["resident_age_7d"] == 1) & (df["legal_partnership_status_6a"] == 2)]
+    results['exclusive_values'] = pd.concat((student_exclusive, married_age_exclusive), axis=1)
 
-        # Setting the IQR bounds
-        lower_bound = Q1 - 1.5 * IQR
-        upper_bound = Q3 + 1.5 * IQR
-        outliers = df[(df[col] < lower_bound) | (df[col] > upper_bound)]
+    # # 4. Check for outliers in numerical columns using IQR
+    # numerical_columns = df.select_dtypes(include=[np.number]).columns
+    
+    # for col in numerical_columns:
+    #     Q1 = df[col].quantile(0.25)
+    #     Q3 = df[col].quantile(0.75)
+    #     IQR = Q3 - Q1
+
+    #     # Setting the IQR bounds
+    #     lower_bound = Q1 - 1.5 * IQR
+    #     upper_bound = Q3 + 1.5 * IQR
+    #     outliers = df[(df[col] < lower_bound) | (df[col] > upper_bound)]
         
-        results['outliers'][col] = {
-            'count': outliers.shape[0],
-            'lower_bound': lower_bound,
-            'upper_bound': upper_bound
-        }
+    #     results['outliers'][col] = {
+    #         'count': outliers.shape[0],
+    #         'lower_bound': lower_bound,
+    #         'upper_bound': upper_bound
+    #     }
     
     # 5. Check for invalid values based on predefined valid ranges
     # Define valid value arrays for each column
@@ -132,12 +139,20 @@ def print_consistency_results(results):
     print("\n3. Data Types:")
     print(results['data_types'])
     
-    print("\n4. Outliers Detection (using IQR method):")
-    for col, data in results['outliers'].items():
-        print(f"\nColumn: {col}")
-        print(f"Number of outliers: {data['count']}")
-        print(f"Lower bound: {data['lower_bound']:.2f}")
-        print(f"Upper bound: {data['upper_bound']:.2f}")
+    print("\n4. Mutually Exclusive Values Rows: ")
+    if (len(results['exclusive_values']) == 0): 
+        print("None")
+    else:
+        for index, row in results['exclusive_values'].iterrows():
+            print(f"\Row: {row}") 
+
+
+    # print("\n4. Outliers Detection (using IQR method):")
+    # for col, data in results['outliers'].items():
+    #     print(f"\nColumn: {col}")
+    #     print(f"Number of outliers: {data['count']}")
+    #     print(f"Lower bound: {data['lower_bound']:.2f}")
+    #     print(f"Upper bound: {data['upper_bound']:.2f}")
     
     print("\n5. Invalid Values Check:")
     for col, data in results['invalid_values'].items():
