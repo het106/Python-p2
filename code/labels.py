@@ -163,3 +163,86 @@ usual_student_labels = {
      2.0: "Is a student living at an alternative address in term time",
      3.0: "Is a non-UK-born short-term resident, staying 3 to 12 months"
 }
+
+occupation_order = ["Does not apply", "Managers, directors and senior officials", "Professional occupations", "Associate professional and technical occupations", "Administrative and secretarial occupations", "Skilled trades occupations", "Caring, leisure and other service occupations", "Sales and customer service occupations", "Process, plant and machine operatives", "Elementary occupations"]
+social_grade_order = ["Does not apply", "AB Higher and intermediate managerial/administrative/professional occupations", "C1 Supervisory, clerical and junior managerial/administrative/professional occupations", "C2 Skilled manual occupations", "DE Semi-skilled and unskilled manual occupations; unemployed and lowest grade" ]
+country_of_birth_order = ["Does not apply", "United Kingdom", "Other countries"]
+economic_activity_order = ["Does not apply", "Economically active (excluding full-time students): In employment: Employee", "Economically active (excluding full-time students): In employment: Self-employed", "Economically active (excluding full-time students): Unemployed: Seeking work or waiting to start a job already obtained", "Economically active and a full-time student", "Economically inactive: Retired", "Economically inactive: Student", "Economically inactive: Looking after home or family", "Economically inactive: Long-term sick or disabled", "Economically inactive: Other"]
+ethinic_groups_order = ["Does not apply", "Asian, Asian British or Asian Welsh", "Black, Black British, Black Welsh, Caribbean or African", "Mixed or"]
+sex_order = ["Does not apply", "Female", "Male"]
+health_order = ["Does not apply", "Very good health", "Good health", "Fair health", "Bad health", "Very bad health"]
+family_order = ["Does not apply", "One-person household", "Married or civil partnership couple household", "Cohabiting couple household", "Lone parent household", "Multi-person household"]
+hours_order = ["Does not apply", "15 hours or less", "16 to 30", "31 to 48", "49 or more"]
+education_order = ["Does not apply", "Student", "Not a student"]
+region_order = ["North East", "North West", "Yorkshire and The Humber", "East Midlands", "West Midlands", "East of England", "London", "South East", "South West", "Wales", "Does not apply: Northern Ireland", "Does not apply: Scotland"]
+usual_student_order = ["Does not apply", "Is a usual resident", "Is a student living at an alternative address in term time", "Is a non-UK-born short-term resident, staying 3 to 12 months"]
+partner_order = ["Does not apply", "Never married and never registered a civil partnership", "Married or in a registered civil partnership", "Separated, but still legally married or still legally in a civil partnership", "Divorced or civil partnership dissolved", "Widowed or surviving civil partnership partner"]
+london_order = ["Does not apply", "Inner London", "Outer London"]
+industry_order = ["Does not apply", "A Agriculture, forestry and fishing", "C Manufacturing", "B, D, E Energy and water", "F Construction", "G, I Distribution, hotels and restaurants", "H, J Transport and communication", "K, L, M, N Financial, real estate, professional and administrative activities", "O, P, Q Public administration, education and health", "R, S, T, U Other"]
+religion_order = ["Does not apply", "No religion", "Christian", "Buddhist", "Hindu", "Jewish", "Muslim", "Sikh", "Other religion", "Not answered"]
+residence_order = ["Does not apply", "Lives in a household", "Lives in a communal establishment"]
+age_order = ["Does not apply", "Aged 15 years and under", "Aged 16 to 24 years", "Aged 25 to 34 years", "Aged 35 to 44 years", "Aged 45 to 54 years", "Aged 55 to 64 years", "Aged 65 years and over"]
+
+label_map = {
+    "approx_social_grade": social_grade_labels,
+    "country_of_birth_3a": country_of_birth_labels,
+    "economic_activity_status_10m": economic_activity_labels,
+    "ethnic_group_tb_6a": ethinic_groups_labels,
+    "health_in_general": health_labels,
+    "hh_families_type_6a": family_labels,
+    "hours_per_week_worked": hours_labels,
+    "in_full_time_education": education_labels,
+    "industry_10a": industry_labels,
+    "iol22cd": london_labels,
+    "legal_partnership_status_6a": partner_labels,
+    "occupation_10a": occupation_labels,
+    "region": region_labels,
+    "religion_tb": religion_labels,
+    "residence_type": residence_labels,
+    "resident_age_7d": age_labels,
+    "sex": sex_labels,
+    "usual_short_student": usual_student_labels
+}
+
+order_map = {
+    "approx_social_grade": social_grade_order,
+    "country_of_birth_3a": country_of_birth_order,
+    "economic_activity_status_10m": economic_activity_order,
+    "ethnic_group_tb_6a": ethinic_groups_order,
+    "health_in_general": health_order,
+    "hh_families_type_6a": family_order,
+    "hours_per_week_worked": hours_order,
+    "in_full_time_education": education_order,
+    "industry_10a": industry_order,
+    "iol22cd": london_order,
+    "legal_partnership_status_6a": partner_order,
+    "occupation_10a": occupation_order,
+    "region": region_order,
+    "religion_tb": religion_order,
+    "residence_type": residence_order,
+    "resident_age_7d": age_order,
+    "sex": sex_order,
+    "usual_short_student": usual_student_order
+}
+
+name_map = {
+    "approx_social_grade": "Social Grade",
+    "country_of_birth_3a": "Country of Birth",
+    "economic_activity_status_10m": "Economic Activity Status",
+    "ethnic_group_tb_6a": "Ethnic Group",
+    "health_in_general": "Health",
+    "hh_families_type_6a": "Family",
+    "hours_per_week_worked": "Hours Worked",
+    "in_full_time_education": "Education",
+    "iol22cd": "London",
+    "legal_partnership_status_6a": "Partner",
+    "region": "Region",
+    "occupation_10a": "Occupation",
+    "religion_tb": "Religion",
+    "residence_type": "Residence",
+    "resident_age_7d": "Age",
+    "sex": "Sex",
+    "usual_short_student": "Usual Student",
+    "hours_per_week_worked": "Hours worked",
+    "industry_10a": "Industry"          
+}
