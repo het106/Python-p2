@@ -10,11 +10,17 @@ def convert_notebook_to_html(notebook_path):
     print(f"Converted notebook to HTML: {html_output_path}")
     return html_output_path
 
+
+## For converting to PDF we used this website: 
+
+
+
 def main():
     notebook_path = 'census2021.ipynb'  # Change this to your notebook's path
     
     # Convert notebook to HTML
     convert_notebook_to_html(notebook_path)
+    convert_notebook_to_pdf(notebook_path)
 
 if __name__ == "__main__":
     main()

@@ -19,7 +19,10 @@ def perform_consistency_checks(file_path):
     """
     # Load dataset
     df = pd.read_csv(file_path)
-    
+
+    print("=== Data Quality Check Results ===")
+    print(f"\nLenght of orignal dataset: {len(df)}")
+
     # Initialize results dictionary
     results = {
         'missing_values': None,
@@ -32,40 +35,23 @@ def perform_consistency_checks(file_path):
     # 1. Checking for missing values
     missing_values = df.isnull().sum()
     results['missing_values'] = missing_values
+    df = df.dropna()
     
     # 2. Check for duplicates
     duplicates = df.duplicated().sum()
     results['duplicates'] = duplicates
+    df = df.drop_duplicates()
     
     # 3. Check for inconsistent data types
     data_types = df.dtypes
     results['data_types'] = data_types
     
     # 4. Check for mutually exlusive values
-    #Full time students whose economic category should exclude students
+    # Full time students whose economic category should exclude students
     student_exclusive = df.loc[(df["in_full_time_education"] == 1) & (df["economic_activity_status_10m"] >= 1) & (df["economic_activity_status_10m"] <= 3) & (df["economic_activity_status_10m"] != -8)]
-    #Married people who are below the legal age of marriage
+    # Married people who are below the legal age of marriage
     married_age_exclusive = df.loc[(df["resident_age_7d"] == 1) & (df["legal_partnership_status_6a"] == 2)]
     results['exclusive_values'] = pd.concat((student_exclusive, married_age_exclusive), axis=1)
-
-    # # 4. Check for outliers in numerical columns using IQR
-    # numerical_columns = df.select_dtypes(include=[np.number]).columns
-    
-    # for col in numerical_columns:
-    #     Q1 = df[col].quantile(0.25)
-    #     Q3 = df[col].quantile(0.75)
-    #     IQR = Q3 - Q1
-
-    #     # Setting the IQR bounds
-    #     lower_bound = Q1 - 1.5 * IQR
-    #     upper_bound = Q3 + 1.5 * IQR
-    #     outliers = df[(df[col] < lower_bound) | (df[col] > upper_bound)]
-        
-    #     results['outliers'][col] = {
-    #         'count': outliers.shape[0],
-    #         'lower_bound': lower_bound,
-    #         'upper_bound': upper_bound
-    #     }
     
     # 5. Check for invalid values based on predefined valid ranges
     # Define valid value arrays for each column
@@ -93,21 +79,21 @@ def perform_consistency_checks(file_path):
     # Map each column to its valid values
     validity_mapping = {
         "approx_social_grade": valid_social_grades,
-        "birth_country": valid_birth_country,
-        "economic_activity_last_week": valid_econ_activity,
-        "ethnic_group": valid_ethnic_group,
-        "general_health": valid_health,
-        "household_family_type": valid_family_type,
-        "hours_worked_per_week": valid_hours_worked,
-        "in_education": valid_in_education,
-        "industry_current": valid_industry,
-        "iol_region": valid_iol,
-        "partner_status": valid_partner_status,
-        "occupation_current": valid_occupation,
+        "country_of_birth_3a": valid_birth_country,
+        "economic_activity_status_10m": valid_econ_activity,
+        "ethnic_group_tb_6a": valid_ethnic_group,
+        "health_in_general": valid_health,
+        "hh_families_type_6a": valid_family_type,
+        "hours_per_week_worked": valid_hours_worked,
+        "in_full_time_education": valid_in_education,
+        "industry_10a": valid_industry,
+        "iol22cd": valid_iol,
+        "legal_partnership_status_6a": valid_partner_status,
+        "occupation_10a": valid_occupation,
         "region": valid_region,
-        "religion": valid_religion,
+        "religion_tb": valid_religion,
         "residence_type": valid_residence,
-        "age": valid_age,
+        "resident_age_7d": valid_age,
         "sex": valid_sex,
         "usual_short_student": valid_usual_short_student
     }
@@ -123,12 +109,15 @@ def perform_consistency_checks(file_path):
                 'count': invalid_count,
                 'invalid_values': df[col][invalid_mask].unique().tolist() if invalid_count > 0 else None
             }
+            df = df.drop(df[invalid_mask].index)
     
+    print(f"Length of cleaned dataset: {len(df)}")
+
+    df.to_csv("../data/cleaned_data.csv")
     return results
 
 def print_consistency_results(results):
     """Print the results of the consistency checks in a readable format"""
-    print("=== Data Quality Check Results ===")
     
     print("\n1. Missing Values:")
     print(results['missing_values'])
@@ -144,16 +133,8 @@ def print_consistency_results(results):
         print("None")
     else:
         for index, row in results['exclusive_values'].iterrows():
-            print(f"\Row: {row}") 
+            print(f"Index: {index}") 
 
-
-    # print("\n4. Outliers Detection (using IQR method):")
-    # for col, data in results['outliers'].items():
-    #     print(f"\nColumn: {col}")
-    #     print(f"Number of outliers: {data['count']}")
-    #     print(f"Lower bound: {data['lower_bound']:.2f}")
-    #     print(f"Upper bound: {data['upper_bound']:.2f}")
-    
     print("\n5. Invalid Values Check:")
     for col, data in results['invalid_values'].items():
         print(f"\nColumn: {col}")
@@ -163,6 +144,6 @@ def print_consistency_results(results):
 
 if __name__ == "__main__":
     # When run directly, perform checks on the default dataset
-    file_path = "../data/publicmicrodatateachingsample.csv"
+    file_path = "../data/invalidCensus.csv"
     results = perform_consistency_checks(file_path)
     print_consistency_results(results)
