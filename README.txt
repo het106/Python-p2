@@ -6,3 +6,6 @@ pip install -r requirements.txt
 
 In jupyter notebook, change the kernel to the venv
 This should now be able to run
+
+To change the notebook to an HTML file, go to the code directory and run 
+python convert_to_html.py

@@ -7522,6 +7522,31 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bcb69505">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Project-Introduction">Project Introduction<a class="anchor-link" href="#Project-Introduction">¶</a></h1><p>This project required a group of three to analyze and visually present data on a provided census in Python using libraries like <strong>pandas</strong> and <strong>matplotlib</strong>.<br/>
+The program should check for data inconsistencies and present the data in a way that can easily be interpreted.</p>
+<h2 id="Team-Collaboration">Team Collaboration<a class="anchor-link" href="#Team-Collaboration">¶</a></h2><p>For this project, we collaborated effectively as a team and managed to maintain our own programming style throughout the assignment.</p>
+<h2 id="Implementation">Implementation<a class="anchor-link" href="#Implementation">¶</a></h2><p>We successfully implemented all of the following tasks:</p>
+<ul>
+<li><strong>Basic</strong></li>
+<li><strong>Easy</strong></li>
+<li><strong>Medium</strong></li>
+<li><strong>Medium to Hard</strong></li>
+<li><strong>First Hard</strong>: Displaying data using a map</li>
+</ul>
+<h2 id="Testing">Testing<a class="anchor-link" href="#Testing">¶</a></h2><p>We created an <em>invalidCensus.csv</em> file to test our cleanup process. When you change the file path in the cleanup.py file, you can see that it finds and removes any errors in the data, as well as pointing out some illogical data.</p>
+<h2 id="Problem-Encountered">Problem Encountered<a class="anchor-link" href="#Problem-Encountered">¶</a></h2><p>One problem we encountered was trying to implement a script to convert our Python notebook to a PDF, which required downloading <strong>LaTeX</strong> with <code>sudo</code>, something we cannot do.<br/>
+Instead, we used the following website to convert it:</p>
+<p><a href="https://html2pdf.com/">html2pdf.com</a></p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9b2ca074-084c-4627-ba52-40a9d2e4a643">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7537,7 +7562,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [123]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [78]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -7555,16 +7580,139 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=extra-carry">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=extra-carry">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [124]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [79]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"../data/publicmicrodatateachingsample.csv"</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> "../code/cleanup.py"
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"../data/cleaned_data.csv"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>=== Data Quality Check Results ===
+
+Lenght of orignal dataset: 604351
+Length of cleaned dataset: 604351
+
+1. Missing Values:
+resident_id_m                   0
+approx_social_grade             0
+country_of_birth_3a             0
+economic_activity_status_10m    0
+ethnic_group_tb_6a              0
+health_in_general               0
+hh_families_type_6a             0
+hours_per_week_worked           0
+in_full_time_education          0
+industry_10a                    0
+iol22cd                         0
+legal_partnership_status_6a     0
+occupation_10a                  0
+region                          0
+religion_tb                     0
+residence_type                  0
+resident_age_7d                 0
+sex                             0
+usual_short_student             0
+dtype: int64
+
+2. Duplicate Rows:
+Number of duplicate rows: 0
+
+3. Data Types:
+resident_id_m                   object
+approx_social_grade              int64
+country_of_birth_3a              int64
+economic_activity_status_10m     int64
+ethnic_group_tb_6a               int64
+health_in_general                int64
+hh_families_type_6a              int64
+hours_per_week_worked            int64
+in_full_time_education           int64
+industry_10a                     int64
+iol22cd                         object
+legal_partnership_status_6a      int64
+occupation_10a                   int64
+region                          object
+religion_tb                      int64
+residence_type                   int64
+resident_age_7d                  int64
+sex                              int64
+usual_short_student              int64
+dtype: object
+
+4. Mutually Exclusive Values Rows: 
+None
+
+5. Invalid Values Check:
+
+Column: approx_social_grade
+Number of invalid values: 0
+
+Column: country_of_birth_3a
+Number of invalid values: 0
+
+Column: economic_activity_status_10m
+Number of invalid values: 0
+
+Column: ethnic_group_tb_6a
+Number of invalid values: 0
+
+Column: health_in_general
+Number of invalid values: 0
+
+Column: hh_families_type_6a
+Number of invalid values: 0
+
+Column: hours_per_week_worked
+Number of invalid values: 0
+
+Column: in_full_time_education
+Number of invalid values: 0
+
+Column: industry_10a
+Number of invalid values: 0
+
+Column: iol22cd
+Number of invalid values: 0
+
+Column: legal_partnership_status_6a
+Number of invalid values: 0
+
+Column: occupation_10a
+Number of invalid values: 0
+
+Column: region
+Number of invalid values: 0
+
+Column: religion_tb
+Number of invalid values: 0
+
+Column: residence_type
+Number of invalid values: 0
+
+Column: resident_age_7d
+Number of invalid values: 0
+
+Column: sex
+Number of invalid values: 0
+
+Column: usual_short_student
+Number of invalid values: 0
+</pre>
 </div>
 </div>
 </div>
@@ -7577,6 +7725,67 @@ a.anchor-link {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Draw-bar-charts">Draw bar charts<a class="anchor-link" href="#Draw-bar-charts">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd02b8cf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Define-dropdown-box">Define dropdown box<a class="anchor-link" href="#Define-dropdown-box">¶</a></h3>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=736e00d0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [80]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">"Social Grade"</span><span class="p">,</span>      <span class="s2">"approx_social_grade"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Country of Birth"</span><span class="p">,</span>  <span class="s2">"country_of_birth_3a"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Economic Activity"</span><span class="p">,</span> <span class="s2">"economic_activity_status_10m"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Ethnic Group"</span><span class="p">,</span>      <span class="s2">"ethnic_group_tb_6a"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Health"</span><span class="p">,</span>            <span class="s2">"health_in_general"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Family"</span><span class="p">,</span>            <span class="s2">"hh_families_type_6a"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Hours Worked"</span><span class="p">,</span>      <span class="s2">"hours_per_week_worked"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Education"</span><span class="p">,</span>         <span class="s2">"in_full_time_education"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"London"</span><span class="p">,</span>            <span class="s2">"iol22cd"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Partner"</span><span class="p">,</span>           <span class="s2">"legal_partnership_status_6a"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Region"</span><span class="p">,</span>            <span class="s2">"region"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Occupation"</span><span class="p">,</span>        <span class="s2">"occupation_10a"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Religion"</span><span class="p">,</span>          <span class="s2">"religion_tb"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Residence"</span><span class="p">,</span>         <span class="s2">"residence_type"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Age"</span><span class="p">,</span>               <span class="s2">"resident_age_7d"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Sex"</span><span class="p">,</span>               <span class="s2">"sex"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Usual Student"</span><span class="p">,</span>     <span class="s2">"usual_short_student"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Hours worked"</span><span class="p">,</span>      <span class="s2">"hours_per_week_worked"</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">"Industry"</span><span class="p">,</span>          <span class="s2">"industry_10a"</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="s2">"hours_per_week_worked"</span><span class="p">,</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s2">"Chart to display: "</span><span class="p">,</span>
+    <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'description_width'</span><span class="p">:</span> <span class="s1">'initial'</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8c068663">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This dropdown box is used throughout the solution, mapping the easily readable variables to the names they're stored as in the csv file. Throughout the notebook, we also use a file that we created called <em>labels.py</em> that allows for transformations of numbers from the data set to what they actually represent.</p>
 </div>
 </div>
 </div>
@@ -7596,57 +7805,40 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [125]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [81]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_bar_chart</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">xlabel</span><span class="p">):</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-    <span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_bar_chart</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Load labes from the labels module</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">label_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" Distributions"</span>
+    <span class="n">xlabel</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+
+    <span class="c1"># Count the number of records for the selected column</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="c1"># Map the correct labels to the x axis variables</span>
+    <span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
     <span class="n">counts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">)</span>
 
+    <span class="c1"># Set the title and labels</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Number of Residents"</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">plot_chart</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Social Grade Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"approx_social_grade"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">social_grade_labels</span><span class="p">,</span> <span class="s2">"Social Grade Distributions"</span><span class="p">,</span> <span class="s2">"Social Grade"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Country of Birth Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"country_of_birth_3a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">country_of_birth_labels</span><span class="p">,</span> <span class="s2">"Country of Birth Distributions"</span><span class="p">,</span> <span class="s2">"Country of Birth"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Economic Activity Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"economic_activity_status_10m"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">economic_activity_labels</span><span class="p">,</span> <span class="s2">"Economic Activity Distributions"</span><span class="p">,</span> <span class="s2">"Economic Activity"</span><span class="p">)</span>   
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Ethnic Groups Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"ethnic_group_tb_6a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">ethinic_groups_labels</span><span class="p">,</span> <span class="s2">"Ethnic Groups Distributions"</span><span class="p">,</span> <span class="s2">"Ethnic Group"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Health Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"health_in_general"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">health_labels</span><span class="p">,</span> <span class="s2">"Health Distributions"</span><span class="p">,</span> <span class="s2">"Health"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Family Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"hh_families_type_6a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">family_labels</span><span class="p">,</span> <span class="s2">"Family Distributions"</span><span class="p">,</span> <span class="s2">"Family Type"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Hours Worked Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"hours_per_week_worked"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">hours_labels</span><span class="p">,</span> <span class="s2">"Hours Worked Distributions"</span><span class="p">,</span> <span class="s2">"Hours Worked"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Education Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"in_full_time_education"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">education_labels</span><span class="p">,</span> <span class="s2">"Education Distributions"</span><span class="p">,</span> <span class="s2">"Education Status"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Industry Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"industry_10a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">industry_labels</span><span class="p">,</span> <span class="s2">"Industry Distributions"</span><span class="p">,</span> <span class="s2">"Industry"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"London Borough Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"iol22cd"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">london_labels</span><span class="p">,</span> <span class="s2">"London Borough Distributions"</span><span class="p">,</span> <span class="s2">"London Borough"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Partner Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"legal_partnership_status_6a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">partner_labels</span><span class="p">,</span> <span class="s2">"Partner Distributions"</span><span class="p">,</span> <span class="s2">"Partnership Status"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Occupation Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"occupation_10a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">occupation_labels</span><span class="p">,</span> <span class="s2">"Occupation Distributions"</span><span class="p">,</span> <span class="s2">"Occupation"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Region Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"region"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">region_labels</span><span class="p">,</span> <span class="s2">"Region Distributions"</span><span class="p">,</span> <span class="s2">"Region"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Religion Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"religion_tb"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">religion_labels</span><span class="p">,</span> <span class="s2">"Religion Distributions"</span><span class="p">,</span> <span class="s2">"Religion"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Residence Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"residence_type"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">residence_labels</span><span class="p">,</span> <span class="s2">"Residence Distributions"</span><span class="p">,</span> <span class="s2">"Residence Type"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Age Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"resident_age_7d"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">age_labels</span><span class="p">,</span> <span class="s2">"Age Distributions"</span><span class="p">,</span> <span class="s2">"Age"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Sex Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"sex"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">sex_labels</span><span class="p">,</span> <span class="s2">"Sex Distributions"</span><span class="p">,</span> <span class="s2">"Sex"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Usual Student Distributions"</span><span class="p">:</span>
-        <span class="n">draw_bar_chart</span><span class="p">(</span><span class="s2">"usual_short_student"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">usual_student_labels</span><span class="p">,</span> <span class="s2">"Usual Student Distributions"</span><span class="p">,</span> <span class="s2">"Usual Student Status"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d75c4551">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>By making the draw bar chart implimentation into a function it can take input from a dropdown widget, allowing it to display any record in the table.</p>
 </div>
 </div>
 </div>
@@ -7666,24 +7858,12 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [126]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [82]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">bar_chart_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Social Grade Distributions"</span><span class="p">,</span> <span class="s2">"Country of Birth Distributions"</span><span class="p">,</span> <span class="s2">"Economic Activity Distributions"</span><span class="p">,</span>
-               <span class="s2">"Ethnic Groups Distributions"</span><span class="p">,</span> <span class="s2">"Health Distributions"</span><span class="p">,</span> <span class="s2">"Family Distributions"</span><span class="p">,</span>
-               <span class="s2">"Hours Worked Distributions"</span><span class="p">,</span> <span class="s2">"Education Distributions"</span><span class="p">,</span> <span class="s2">"Industry Distributions"</span><span class="p">,</span>
-               <span class="s2">"London Borough Distributions"</span><span class="p">,</span> <span class="s2">"Partner Distributions"</span><span class="p">,</span> <span class="s2">"Occupation Distributions"</span><span class="p">,</span>
-               <span class="s2">"Region Distributions"</span><span class="p">,</span> <span class="s2">"Religion Distributions"</span><span class="p">,</span> <span class="s2">"Residence Distributions"</span><span class="p">,</span>
-               <span class="s2">"Age Distributions"</span><span class="p">,</span> <span class="s2">"Sex Distributions"</span><span class="p">,</span> <span class="s2">"Usual Student Distributions"</span><span class="p">],</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="s2">"Age Distributions"</span><span class="p">,</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s2">"Chart to display: "</span><span class="p">,</span>
-    <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'description_width'</span><span class="p">:</span> <span class="s1">'initial'</span><span class="p">}</span>
-<span class="p">)</span>
-
-
-<span class="n">out</span> <span class="o">=</span> <span class="n">interactive_output</span><span class="p">(</span><span class="n">plot_chart</span><span class="p">,</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="n">bar_chart_selection</span><span class="p">})</span>
-<span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">([</span><span class="n">bar_chart_selection</span><span class="p">,</span> <span class="n">out</span><span class="p">]))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Display the bar chart</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">interactive_output</span><span class="p">(</span><span class="n">draw_bar_chart</span><span class="p">,</span> <span class="p">{</span><span class="s1">'column'</span><span class="p">:</span> <span class="n">selection</span><span class="p">})</span>
+<span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">([</span><span class="n">selection</span><span class="p">,</span> <span class="n">out</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -7696,8 +7876,20 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>VBox(children=(Dropdown(description='Chart to display: ', index=15, options=('Social Grade Distributions', 'Co…</pre>
+<pre>VBox(children=(Dropdown(description='Chart to display: ', index=6, options=(('Social Grade', 'approx_social_gr…</pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=03af6ea3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>To show the bar chart for age or occupation distribution as required in the basic requirements select either <code>Age</code> or <code>Occupation</code> from the dropdown box.<br/>
+The age distrobution shows us that for all sections other than under 15s and 65s and over there is around 70,000 records. It makes sense that the other two have more records since their age range is greater that the limited 10 year sections of the other 5.</p>
 </div>
 </div>
 </div>
@@ -7728,56 +7920,38 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [127]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [83]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_pie_chart</span><span class="p">(</span><span class="n">column</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-    <span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_pie_chart</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Load labels from the labels module</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">label_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" Distributions"</span>
+
+    <span class="c1"># Count the number of records for the selected column</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="c1"># Map the correct labels to the variables</span>
+    <span class="n">counts</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
     <span class="n">counts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'pie'</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">'</span><span class="si">%1.1f%%</span><span class="s1">'</span><span class="p">)</span>
 
+    <span class="c1"># Set the title and labels</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">plot_pie_chart</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Social Grade Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"approx_social_grade"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">social_grade_labels</span><span class="p">,</span> <span class="s2">"Social Grade Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Country of Birth Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"country_of_birth_3a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">country_of_birth_labels</span><span class="p">,</span> <span class="s2">"Country of Birth Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Economic Activity Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"economic_activity_status_10m"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">economic_activity_labels</span><span class="p">,</span> <span class="s2">"Economic Activity Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Ethic Groups Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"ethnic_group_tb_6a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">ethinic_groups_labels</span><span class="p">,</span> <span class="s2">"Ethnic Groups Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Health Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"health_in_general"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">health_labels</span><span class="p">,</span> <span class="s2">"Health Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Family Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"hh_families_type_6a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">family_labels</span><span class="p">,</span> <span class="s2">"Family Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Hours Worked Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"hours_per_week_worked"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">hours_labels</span><span class="p">,</span> <span class="s2">"Hours Worked Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Education Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"in_full_time_education"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">education_labels</span><span class="p">,</span> <span class="s2">"Education Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Industry Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"industry_10a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">industry_labels</span><span class="p">,</span> <span class="s2">"Industry Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"London Borough Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"iol22cd"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">london_labels</span><span class="p">,</span> <span class="s2">"London Borough Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Partner Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"legal_partnership_status_6a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">partner_labels</span><span class="p">,</span> <span class="s2">"Partner Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Occupation Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"occupation_10a"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">occupation_labels</span><span class="p">,</span> <span class="s2">"Occupation Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Region Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"region"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">region_labels</span><span class="p">,</span> <span class="s2">"Region Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Religion Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"religion_tb"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">religion_labels</span><span class="p">,</span> <span class="s2">"Religion Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Residence Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"residence_type"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">residence_labels</span><span class="p">,</span> <span class="s2">"Residence Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Age Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"resident_age_7d"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">age_labels</span><span class="p">,</span> <span class="s2">"Age Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Sex Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"sex"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">sex_labels</span><span class="p">,</span> <span class="s2">"Sex Distributions"</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">value</span> <span class="o">==</span> <span class="s2">"Usual Student Distributions"</span><span class="p">:</span>
-        <span class="n">draw_pie_chart</span><span class="p">(</span><span class="s2">"usual_short_student"</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">usual_student_labels</span><span class="p">,</span> <span class="s2">"Usual Student Distributions"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bc1604c1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The same principal for the bar charts was applied to pie charts, allowing them to display any catagory again.</p>
 </div>
 </div>
 </div>
@@ -7797,25 +7971,12 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [128]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [84]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">pie_chart_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Social Grade Distributions"</span><span class="p">,</span> <span class="s2">"Country of Birth Distributions"</span><span class="p">,</span> <span class="s2">"Economic Activity Distributions"</span><span class="p">,</span>
-               <span class="s2">"Ethic Groups Distributions"</span><span class="p">,</span> <span class="s2">"Health Distributions"</span><span class="p">,</span> <span class="s2">"Family Distributions"</span><span class="p">,</span>
-               <span class="s2">"Hours Worked Distributions"</span><span class="p">,</span> <span class="s2">"Education Distributions"</span><span class="p">,</span> <span class="s2">"Industry Distributions"</span><span class="p">,</span>
-               <span class="s2">"London Borough Distributions"</span><span class="p">,</span> <span class="s2">"Partner Distributions"</span><span class="p">,</span> <span class="s2">"Occupation Distributions"</span><span class="p">,</span>
-               <span class="s2">"Region Distributions"</span><span class="p">,</span> <span class="s2">"Religion Distributions"</span><span class="p">,</span> <span class="s2">"Residence Distributions"</span><span class="p">,</span>
-               <span class="s2">"Age Distributions"</span><span class="p">,</span> <span class="s2">"Sex Distributions"</span><span class="p">,</span> <span class="s2">"Usual Student Distributions"</span><span class="p">],</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s2">"Chart to display: "</span><span class="p">,</span>
-    <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'description_width'</span><span class="p">:</span> <span class="s1">'initial'</span><span class="p">}</span>
-<span class="p">)</span>
-
-
-
-
-<span class="n">out</span> <span class="o">=</span> <span class="n">interactive_output</span><span class="p">(</span><span class="n">plot_pie_chart</span><span class="p">,</span> <span class="p">{</span><span class="s1">'value'</span><span class="p">:</span> <span class="n">pie_chart_selection</span><span class="p">})</span>
-<span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">([</span><span class="n">pie_chart_selection</span><span class="p">,</span> <span class="n">out</span><span class="p">]))</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Display the pie chart</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">interactive_output</span><span class="p">(</span><span class="n">draw_pie_chart</span><span class="p">,</span> <span class="p">{</span><span class="s1">'column'</span><span class="p">:</span> <span class="n">selection</span><span class="p">})</span>
+<span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">([</span><span class="n">selection</span><span class="p">,</span> <span class="n">out</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -7828,8 +7989,20 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>VBox(children=(Dropdown(description='Chart to display: ', options=('Social Grade Distributions', 'Country of B…</pre>
+<pre>VBox(children=(Dropdown(description='Chart to display: ', index=6, options=(('Social Grade', 'approx_social_gr…</pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9bbc6cef">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The easy requirements ask for pie charts for health descriptors and for ethnic groups, to see these select <code>Health</code> or <code>Ethnic Group</code> from the dropdown box.<br/>
+By using the health section we can see that the majority of the records are in good health, with 48% in "Very good health" and 33% in "Good health", only 1.2% of the section have "Very bad health"</p>
 </div>
 </div>
 </div>
@@ -7871,23 +8044,32 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [129]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [85]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_table</span><span class="p">(</span><span class="n">variable1</span><span class="p">,</span> <span class="n">variable2</span><span class="p">):</span>
     <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
+    <span class="c1"># Only draw the table if the two variables are different</span>
+    <span class="k">if</span> <span class="n">variable1</span> <span class="o">==</span> <span class="n">variable2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Please select two different variables."</span><span class="p">)</span>
+        <span class="k">return</span>
+      
+    <span class="c1"># Load labels and display order from the labels module</span>
     <span class="n">label1</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">label_map</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span>
     <span class="n">label2</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">label_map</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span>
     <span class="n">order1</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">order_map</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span>
     <span class="n">order2</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">order_map</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span>
 
+    <span class="c1"># Map the correct labels to the variables</span>
     <span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label1</span><span class="p">)</span>
     <span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label2</span><span class="p">)</span>
 
+    <span class="c1"># Set the order of the categories</span>
     <span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">order1</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">order2</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+    <span class="c1"># Create a crosstab table</span>
     <span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
         <span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">],</span>
         <span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">],</span>
@@ -7895,6 +8077,7 @@ a.anchor-link {
         <span class="n">margins_name</span><span class="o">=</span><span class="s2">"Total"</span>
     <span class="p">)</span>
 
+    <span class="c1"># Set the index and column names</span>
     <span class="n">table</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span>
     <span class="n">table</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span>
     
@@ -7904,48 +8087,41 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7979832d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Again the tables are designed to accept any two catagories and display them accuratly. The code for this section is more complicated however, due to the need to sort the table orders and label the variables for two different sections.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=86c80d92">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [130]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [86]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">table_selection1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">(</span><span class="s2">"Social Grade"</span><span class="p">,</span>      <span class="s2">"approx_social_grade"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Country of Birth"</span><span class="p">,</span>  <span class="s2">"country_of_birth_3a"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Economic Activity"</span><span class="p">,</span> <span class="s2">"economic_activity_status_10m"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Ethnic Group"</span><span class="p">,</span>      <span class="s2">"ethnic_group_tb_6a"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Health"</span><span class="p">,</span>            <span class="s2">"health_in_general"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Family"</span><span class="p">,</span>            <span class="s2">"hh_families_type_6a"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Hours Worked"</span><span class="p">,</span>      <span class="s2">"hours_per_week_worked"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Education"</span><span class="p">,</span>         <span class="s2">"in_full_time_education"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"London"</span><span class="p">,</span>            <span class="s2">"iol22cd"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Partner"</span><span class="p">,</span>           <span class="s2">"legal_partnership_status_6a"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Region"</span><span class="p">,</span>            <span class="s2">"region"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Occupation"</span><span class="p">,</span>        <span class="s2">"occupation_10a"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Religion"</span><span class="p">,</span>          <span class="s2">"religion_tb"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Residence"</span><span class="p">,</span>         <span class="s2">"residence_type"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Age"</span><span class="p">,</span>               <span class="s2">"resident_age_7d"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Sex"</span><span class="p">,</span>               <span class="s2">"sex"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Usual Student"</span><span class="p">,</span>     <span class="s2">"usual_short_student"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Hours worked"</span><span class="p">,</span>      <span class="s2">"hours_per_week_worked"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Industry"</span><span class="p">,</span>          <span class="s2">"industry_10a"</span><span class="p">),</span>
-    <span class="p">],</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define two new dropdowns for the table selection, using the same options</span>
+<span class="n">table_selection1</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="n">selection</span><span class="o">.</span><span class="n">options</span><span class="p">,</span>
     <span class="n">value</span> <span class="o">=</span> <span class="s2">"hours_per_week_worked"</span><span class="p">,</span>
     <span class="n">description</span> <span class="o">=</span> <span class="s2">"Table to display: "</span><span class="p">,</span>
     <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'description_width'</span><span class="p">:</span> <span class="s1">'initial'</span><span class="p">}</span>
 <span class="p">)</span>
 <span class="n">table_selection2</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="n">table_selection1</span><span class="o">.</span><span class="n">options</span><span class="p">,</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="n">selection</span><span class="o">.</span><span class="n">options</span><span class="p">,</span>
     <span class="n">value</span> <span class="o">=</span> <span class="s2">"industry_10a"</span><span class="p">,</span>
     <span class="n">description</span> <span class="o">=</span> <span class="s2">"Table to display: "</span><span class="p">,</span>
     <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'description_width'</span><span class="p">:</span> <span class="s1">'initial'</span><span class="p">}</span>
 <span class="p">)</span>
 
 
+<span class="c1"># Display the table</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">interactive_output</span><span class="p">(</span><span class="n">draw_table</span><span class="p">,</span> <span class="p">{</span>
     <span class="s1">'variable1'</span><span class="p">:</span>        <span class="n">table_selection1</span><span class="p">,</span>
     <span class="s1">'variable2'</span><span class="p">:</span>        <span class="n">table_selection2</span>
@@ -7966,6 +8142,19 @@ a.anchor-link {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>VBox(children=(Dropdown(description='Table to display: ', index=6, options=(('Social Grade', 'approx_social_gr…</pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dbaebf5b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The two required tables for this section are mapping hours worked per week against industry and occupation against approximate social grade, again selectable by using the dropdown widget.<br/>
+Analysis of the first and we can see that there is 171,000 records in "does not apply for" both records, presumably people who don't work. More interestingly are the 150,000 people who work in an industry both chose "Does not apply", these people could potentially be working very variable hours per week or currently be on leave.<br/>
+When looking at the occupation against approximate social grade table we can see the expected results that the higher social grade records typically work in professional occupations or as managers and directors while the lower social grades are far more likely to work in Elementary Occupations</p>
 </div>
 </div>
 </div>
@@ -8007,29 +8196,40 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [131]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [87]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_heatmap</span><span class="p">(</span><span class="n">variable1</span><span class="p">,</span> <span class="n">variable2</span><span class="p">,</span> <span class="n">colour</span><span class="p">):</span>
     <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
+    <span class="c1"># Only draw the heatmap if the two variables are different</span>
+    <span class="k">if</span> <span class="n">variable1</span> <span class="o">==</span> <span class="n">variable2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Please select two different variables."</span><span class="p">)</span>
+        <span class="k">return</span>  
+    
+    <span class="c1"># Load labels and display order from the labels module</span>
     <span class="n">label1</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">label_map</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span>
     <span class="n">label2</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">label_map</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span>
     <span class="n">order1</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">order_map</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span>
     <span class="n">order2</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">order_map</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span>
 
+    <span class="c1"># Map the correct labels to the variables</span>
     <span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label1</span><span class="p">)</span>
     <span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label2</span><span class="p">)</span>
 
+    <span class="c1"># Set the order of the categories</span>
     <span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">order1</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">],</span> <span class="n">categories</span><span class="o">=</span><span class="n">order2</span><span class="p">,</span> <span class="n">ordered</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
+    <span class="c1"># Create a heatmap</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
         <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">variable1</span><span class="p">],</span> <span class="n">df2</span><span class="p">[</span><span class="n">variable2</span><span class="p">]),</span>
         <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">'d'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colour</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">)</span>
+
+    <span class="c1"># Set the title and labels</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">variable1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" vs "</span> <span class="o">+</span> <span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">variable2</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">variable1</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">variable2</span><span class="p">])</span>
@@ -8038,20 +8238,34 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=38269bb5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The Heatmap function looks nearly identical to the previous table function, with very similar labelling and drawing. The key change is the use of the sns heatmap function rather than the pandas crosstab</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5b933ea4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [132]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [88]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">colour_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define a widget for the colour selection</span>
+<span class="n">colour_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
     <span class="n">options</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Blues"</span><span class="p">,</span> <span class="s2">"Greens"</span><span class="p">,</span> <span class="s2">"Reds"</span><span class="p">,</span> <span class="s2">"Purples"</span><span class="p">,</span> <span class="s2">"Oranges"</span><span class="p">],</span>
     <span class="n">description</span> <span class="o">=</span> <span class="s2">"Colour scheme: "</span><span class="p">,</span>
     <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'description_width'</span><span class="p">:</span> <span class="s1">'initial'</span><span class="p">}</span>
 <span class="p">)</span>
 
+
+<span class="c1"># Display the heatmap</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">interactive_output</span><span class="p">(</span><span class="n">draw_heatmap</span><span class="p">,</span> <span class="p">{</span>
     <span class="s1">'variable1'</span><span class="p">:</span>        <span class="n">table_selection1</span><span class="p">,</span>
     <span class="s1">'variable2'</span><span class="p">:</span>        <span class="n">table_selection2</span><span class="p">,</span>
@@ -8077,6 +8291,17 @@ a.anchor-link {
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8937bcc3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>By drawing the same required tables from above in a heatmap the patterns previously noted are even more easy to see.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1a0202de">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8092,33 +8317,43 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [133]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [89]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_economic_bar_chart</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
     <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
+    <span class="c1"># Ensure the selected column is not "economic_activity_status_10m"</span>
+    <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="s2">"economic_activity_status_10m"</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Please select a different variable."</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Load labels from the labels module</span>
     <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">label_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
     <span class="n">xlabel</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
 
+    <span class="c1"># Create a new dataframe with only the relevant records</span>
     <span class="n">economic_active</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">'economic_activity_status_10m'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])]</span>  <span class="c1"># Active status codes 1,2,3,4</span>
     <span class="n">economic_inactive</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">'economic_activity_status_10m'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])]</span>  <span class="c1"># Inactive status codes 5, 6, 7, 8,9</span>
 
-    <span class="n">active_by_age</span> <span class="o">=</span> <span class="n">economic_active</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-    <span class="n">inactive_by_age</span> <span class="o">=</span> <span class="n">economic_inactive</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="c1"># Count the number of records for the selected column</span>
+    <span class="n">active_by_variable</span> <span class="o">=</span> <span class="n">economic_active</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">inactive_by_variable</span> <span class="o">=</span> <span class="n">economic_inactive</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 
-    <span class="n">active_by_age</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">active_by_age</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">inactive_by_age</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">inactive_by_age</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="c1"># Map the correct labels to the x axis variables</span>
+    <span class="n">active_by_variable</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">active_by_variable</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">inactive_by_variable</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">inactive_by_variable</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 
 
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_by_age</span><span class="o">.</span><span class="n">index</span><span class="p">))</span> 
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_by_variable</span><span class="o">.</span><span class="n">index</span><span class="p">))</span> 
     <span class="n">w</span> <span class="o">=</span> <span class="mf">0.4</span>
 
+    <span class="c1"># Create a bar chart</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">active_by_age</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="s1">'Active'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">inactive_by_age</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Inactive'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">active_by_variable</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="s1">'Active'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">inactive_by_variable</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Inactive'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Economically Active vs Inactive People by '</span> <span class="o">+</span> <span class="n">xlabel</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">active_by_age</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">active_by_variable</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Count'</span><span class="p">)</span>
@@ -8128,30 +8363,31 @@ a.anchor-link {
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6de3310b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>The same repeatable principle was used on the comparison bar chart function. This time with the caviet that two bar plots are being drawn onto the same graph and that a new dataframe has to be created for both economically active and inactive, using the economic activity status.</p>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=49ec1245">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [134]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [90]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">bar_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">(</span><span class="s2">"Age"</span><span class="p">,</span>     <span class="s2">"resident_age_7d"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Health"</span><span class="p">,</span>  <span class="s2">"health_in_general"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Region"</span><span class="p">,</span>  <span class="s2">"region"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Social Grade"</span><span class="p">,</span> <span class="s2">"approx_social_grade"</span><span class="p">)],</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="s2">"resident_age_7d"</span><span class="p">,</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s2">"Bar to display: "</span><span class="p">,</span>
-    <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'description_width'</span><span class="p">:</span> <span class="s1">'initial'</span><span class="p">}</span>
-<span class="p">)</span>
-
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Display the bar chart</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">interactive_output</span><span class="p">(</span><span class="n">draw_economic_bar_chart</span><span class="p">,</span> <span class="p">{</span>
-    <span class="s1">'column'</span><span class="p">:</span>        <span class="n">bar_selection</span>
+    <span class="s1">'column'</span><span class="p">:</span> <span class="n">selection</span>
 <span class="p">})</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">([</span><span class="n">bar_selection</span><span class="p">,</span> <span class="n">out</span><span class="p">]))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">([</span><span class="n">selection</span><span class="p">,</span> <span class="n">out</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -8164,8 +8400,22 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>VBox(children=(Dropdown(description='Bar to display: ', options=(('Age', 'resident_age_7d'), ('Health', 'healt…</pre>
+<pre>VBox(children=(Dropdown(description='Chart to display: ', index=6, options=(('Social Grade', 'approx_social_gr…</pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b519ca24">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Using this chart you can compare the number of economically active and inactive people based on both age and health groups.<br/>
+When analyising the age charts as expected the least active group is the 65 and over group, due to the large sections of this group which will be retired. The youngest age group also has a significant inactive section, this time due to the student population.<br/>
+Interestingly it's clear that the sum of both active and inactive people for the oldest group is more than that of any other group, this is due to both the larger age range of this group as well as the removal of "Does not apply" having the smallest effect on this section.</p>
+<p>Comparing health with econmic activity again produces a very expected value, with the majority of people in good and very good health economically active, while people in bad or very bad health are far less likely to be active.</p>
 </div>
 </div>
 </div>
@@ -8174,31 +8424,43 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [135]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [91]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_student_economic_bar_chart</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
     <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
+    <span class="k">if</span> <span class="n">column</span> <span class="o">==</span> <span class="s2">"economic_activity_status_10m"</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Please select a different variable."</span><span class="p">)</span>
+        <span class="k">return</span>
+    
+    <span class="c1"># Load labels from the labels module</span>
     <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">label_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
     <span class="n">xlabel</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">column</span><span class="p">]</span>
 
-    <span class="n">student</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">'economic_activity_status_10m'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])]</span>  <span class="c1"># Active status codes 1,2,3,4</span>
-    <span class="n">not_student</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">'economic_activity_status_10m'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])]</span>  <span class="c1"># Inactive status codes 5, 6, 7, 8,9</span>
+    <span class="c1"># Create a new dataframe with only the relevant records</span>
+    <span class="n">student</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">'economic_activity_status_10m'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">])]</span>  
+    <span class="n">not_student</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">'economic_activity_status_10m'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])]</span>  
 
-    <span class="n">active_by_age</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-    <span class="n">inactive_by_age</span> <span class="o">=</span> <span class="n">not_student</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="c1"># Count the number of records for the selected column</span>
+    <span class="n">student_for_variable</span> <span class="o">=</span> <span class="n">student</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">not_student_for_variable</span> <span class="o">=</span> <span class="n">not_student</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">column</span><span class="p">)[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 
-    <span class="n">active_by_age</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">active_by_age</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-    <span class="n">inactive_by_age</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">inactive_by_age</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="c1"># Map the correct labels to the x axis variables</span>
+    <span class="n">student_for_variable</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">student_for_variable</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">not_student_for_variable</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">not_student_for_variable</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 
 
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_by_age</span><span class="o">.</span><span class="n">index</span><span class="p">))</span> 
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">student_for_variable</span><span class="o">.</span><span class="n">index</span><span class="p">))</span> 
     <span class="n">w</span> <span class="o">=</span> <span class="mf">0.4</span>
 
+    <span class="c1"># Create a bar chart</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">active_by_age</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="s1">'Students'</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">inactive_by_age</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Non-Students'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">student_for_variable</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="s1">'Students'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">w</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">not_student_for_variable</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Non-Students'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">xlabel</span> <span class="o">+</span> <span class="s1">' for Students vs Non-Students'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">student_for_variable</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Count'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -8212,27 +8474,15 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [136]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [92]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">student_bar_selection</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">(</span><span class="s2">"Hours Worked"</span><span class="p">,</span> <span class="s2">"hours_per_week_worked"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Health"</span><span class="p">,</span> <span class="s2">"health_in_general"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Region"</span><span class="p">,</span> <span class="s2">"region"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Social Grade"</span><span class="p">,</span> <span class="s2">"approx_social_grade"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Occupation"</span><span class="p">,</span> <span class="s2">"occupation_10a"</span><span class="p">),</span>
-        <span class="p">(</span><span class="s2">"Age"</span><span class="p">,</span> <span class="s2">"resident_age_7d"</span><span class="p">)],</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="s2">"resident_age_7d"</span><span class="p">,</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="s2">"Bar to display: "</span><span class="p">,</span>
-    <span class="n">style</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'description_width'</span><span class="p">:</span> <span class="s1">'initial'</span><span class="p">}</span>
-<span class="p">)</span>
-
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Display the bar chart</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">interactive_output</span><span class="p">(</span><span class="n">draw_student_economic_bar_chart</span><span class="p">,</span> <span class="p">{</span>
-    <span class="s1">'column'</span><span class="p">:</span>        <span class="n">student_bar_selection</span>
+    <span class="s1">'column'</span><span class="p">:</span> <span class="n">selection</span>
 <span class="p">})</span>
 
-<span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">([</span><span class="n">student_bar_selection</span><span class="p">,</span> <span class="n">out</span><span class="p">]))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">VBox</span><span class="p">([</span><span class="n">selection</span><span class="p">,</span> <span class="n">out</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -8245,7 +8495,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>VBox(children=(Dropdown(description='Bar to display: ', index=5, options=(('Hours Worked', 'hours_per_week_wor…</pre>
+<pre>VBox(children=(Dropdown(description='Chart to display: ', index=6, options=(('Social Grade', 'approx_social_gr…</pre>
 </div>
 </div>
 </div>
@@ -8267,7 +8517,7 @@ First we must import the shapefile that will give us the geographic data. We are
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [137]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [93]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"../data/publicmicrodatateachingsample.csv"</span><span class="p">)</span>
@@ -8283,7 +8533,7 @@ First we must import the shapefile that will give us the geographic data. We are
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[137]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[93]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8392,7 +8642,7 @@ First we must import the shapefile that will give us the geographic data. We are
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [138]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [94]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Rename the region codes to the modern version that the census data uses</span>
@@ -8409,7 +8659,7 @@ First we must import the shapefile that will give us the geographic data. We are
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[138]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[94]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8595,7 +8845,7 @@ First we must import the shapefile that will give us the geographic data. We are
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [139]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [95]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get the counts and add this to the geographic DataFrame</span>
@@ -8614,7 +8864,7 @@ First we must import the shapefile that will give us the geographic data. We are
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[139]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[95]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8722,7 +8972,7 @@ First we must import the shapefile that will give us the geographic data. We are
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [140]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [96]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
@@ -8763,6 +9013,7 @@ First we must import the shapefile that will give us the geographic data. We are
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Through this map, we can see that most of the data comes from the Southeast, which makes sense considering it has the highest population density.</p>
 <p>We can use a similar idea to find the most responses for any of the statistics by region</p>
 <p><em>Note: To change which stat you are looking at, change the occupation string and corresponding map to whichever column you'd like to observe</em></p>
 </div>
@@ -8773,7 +9024,7 @@ First we must import the shapefile that will give us the geographic data. We are
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [141]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [97]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Make a table of occupation per region</span>
@@ -8792,7 +9043,7 @@ First we must import the shapefile that will give us the geographic data. We are
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[141]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[97]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8968,10 +9219,11 @@ First we must import the shapefile that will give us the geographic data. We are
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [142]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [98]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">max_stats</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Add the maximum occupation for each region as a new column</span>
+<span class="n">max_stats</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">map</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">max_stats</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"max_stat"</span><span class="p">),</span> <span class="n">on</span><span class="o">=</span><span class="s2">"region"</span><span class="p">)</span>
 <span class="nb">map</span>
 </pre></div>
@@ -8984,7 +9236,7 @@ First we must import the shapefile that will give us the geographic data. We are
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[142]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[98]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -9185,7 +9437,7 @@ First we must import the shapefile that will give us the geographic data. We are
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [143]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [99]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
